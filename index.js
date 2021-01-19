@@ -1,11 +1,7 @@
 const readLineSync = require('readline-sync');
 
-function quiz(){
-  let score=0;
-  console.log(`Finally you have decided to go ahead, Congrats !!\nIn the next Screen you will get the questions 1-by-1.\nFollow the rules stated to answer the questions.\n\n`);
-  readLineSync.keyInPause('Press Any Key to continue');
-  console.clear();
-
+//Only Edit this section to add or remove Questions
+function Questions(score){
   //Question No 1
   console.log(`Q1. Quick sort running time depends on the selection of\n  A. Size of Array\n  B. Pivot Element\n  C. Sequence of Elements\n  D. None of these`);
   console.log(`Answer:`);
@@ -90,9 +86,20 @@ function quiz(){
   }
   console.clear();
   return score;
+}
+
+//main QUiz Function
+function quiz(){
+  let score=0;
+  console.log(`Finally you have decided to go ahead, Congrats !!\nIn the next Screen you will get the questions 1-by-1.\nFollow the rules stated to answer the questions.\n\n`);
+  readLineSync.keyInPause('Press Any Key to continue');
+  console.clear();
+  score=Questions(score);
+  return score;
   
 }
 
+//Calling point of the function
 const name = readLineSync.question('What is your name?\n');
 console.clear();
 console.log(`Hello ${name}`);
