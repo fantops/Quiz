@@ -42,19 +42,14 @@ function quiz(){
   readLineSync.keyInPause('Press Any Key to continue');
   console.clear();
   for(let i = 0; i < questions.length; i++) {
-    console.log();
-    console.log(`${questions[i].question}`);
-    for(const num of questions[i].options) {
-      console.log(`\t${num}`);
-    }
-    console.log();
-    const ans = readLineSync.question('Enter Your answer : ');
+    console.log(`\n${questions[i].question}`);
+    const ans = readLineSync.question(`${questions[i].options.join(`\n`)}\n\nEnter Your answer: `);
     if(validate(ans)) {
       if(ans.toUpperCase() === questions[i].correctAnswer) {
           console.log("Yaay!! You have done it Correct.");
           totalScore += 1;
       } else {
-        console.log("\nWrong Answer");
+        console.log("\nYou have given a wrong Answer");
         console.log(`Correct answer is ${questions[i].correctAnswer}`);
       } 
     } else {
