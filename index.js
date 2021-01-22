@@ -1,105 +1,80 @@
 const readLineSync = require('readline-sync');
 
 //Only Edit this section to add or remove Questions
-function Questions(score){
-  //Question No 1
-  console.log(`Q1. Quick sort running time depends on the selection of\n  A. Size of Array\n  B. Pivot Element\n  C. Sequence of Elements\n  D. None of these`);
-  console.log(`Answer:`);
-  let answer = readLineSync.question();
-  if(answer.toUpperCase()==='B'){
-    console.log("Yaay!! You have done it Correct.")
-    score++;
-    console.log(`\nIf the pivot element is balanced, quick sort running time will be less.\n\nLet's Move to next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue');
+const questions = [
+  {
+    question : 'Q1. Quick sort running time depends on the selection of',
+    options : ['A. Size of Array', 'B. Pivot Element', 'C. Sequence of Elements', 'D. None of these'],
+    correctAnswer : 'B'
+  },
+  {
+    question : 'Q2. Tower of hanoi is a classic example of',
+    options : ['A. divide and conquer', 'B. recursive approach', 'C. B but not A', 'D. Both A & B'],
+    correctAnswer : 'D'
+  },
+  {
+    question : 'Q3.  node.next -> node.next.next; will make',
+    options : ['A. node.next inaccessible', 'B. node.next.next inaccessible', 'C. this node inaccessible', 'D. None of these'],
+    correctAnswer : 'A'
+  },
+  {
+    question : 'Q4 Which of the following highly uses the concept of an array?',
+    options : ['A. Binary Search tree', 'B. Caching', 'C. Spatial Locality', 'D. Scheduling'],
+    correctAnswer : 'C'
+  },
+   {
+    question : 'Q5. When the user tries to delete the element from the empty stack then the condition is\n   said to be a',
+    options : ['A. Underflow', 'B. Garbage collection', 'C. Overflow', 'D. None'],
+    correctAnswer : 'A'
   }
-  else{
-    console.log(`\nAhh! You have guessed it wrong. Correct Answer is B.\n\nExplanation:\nIf the pivot element is balanced, quick sort running time will be less.\n\nNo Worries try your best in next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue');
-  }
+]
 
-  console.log(`**************************************************************************************************\n`);
-
-  //Question No 2
-  console.log(`Q2. Tower of hanoi is a classic example of\n  A. divide and conquer\n  B. recursive approach\n  C. B but not A\n  D. Both A & B`);
-  console.log(`Answer:`);
-  answer = readLineSync.question();
-  if(answer.toUpperCase()==='D'){
-    console.log("Yaay!! You have done it Correct.")
-    score++;
-    console.log(`\nThe recursive approach of tower of hanoi uses divide and conquer method.\n\nLet's Move to next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue');
-  }
-  else{
-    console.log(`\nAhh! You have guessed it wrong. Correct Answer is D.\n\nExplanation:\nThe recursive approach of tower of hanoi uses divide and conquer method.\n\nNo Worries try your best in next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue');
-  }
-
-  console.log(`**************************************************************************************************\n`);
-
-  //Question No 3
-  console.log(`Q3. node.next -> node.next.next; will make\n  A. node.next inaccessible\n  B. node.next.next inaccessible\n  C. this node inaccessible\n  D. none of the above`);
-  console.log(`Answer:`);
-  answer = readLineSync.question();
-  if(answer.toUpperCase()==='A'){
-    console.log("Yaay!! You have done it Correct.")
-    score++;
-    console.log(`\nAfter applying node.next -> node.next.next; we will not have node.next stored anywhere if\nnot explicitly mentioned.\n\nLet's Move to next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue');
-  }
-  else{
-    console.log(`\nAhh! You have guessed it wrong. Correct Answer is A.\n\nExplanation:\nAfter applying node.next -> node.next.next; we will not have node.next stored anywhere if\nnot explicitly mentioned.\n\nNo Worries try your best in next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue'); 
-  }
-
-   console.log(`**************************************************************************************************\n`);
-
-  //Question No 4
-  console.log(`Q4 Which of the following highly uses the concept of an array?\n  A. Binary Search tree\n  B. Caching\n  C. Spatial Locality\n  D. Scheduling`);
-  console.log(`Answer:`);
-  answer = readLineSync.question();
-  if(answer.toUpperCase()==='C'){
-    console.log("Yaay!! You have done it Correct.")
-    score++;
-    console.log(`\nHere, spatial locality means that the instruction accessed recently, then the nearby memory\nlocation would be accessed in the next iteration. As we know that in an array, all the elements\nare stored in a contiguous block of memory, so spatial locality is accessed quickly.\n\nLet's Move to next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue');
-  }
-  else{
-    console.log(`\nAhh! You have guessed it wrong. Correct Answer is C.\n\nExplanation:\nHere, spatial locality means that the instruction accessed recently, then the nearby memory\nlocation would be accessed in the next iteration. As we know that in an array, all the elements\nare stored in a contiguous block of memory, so spatial locality is accessed quickly.\n\nNo Worries try your best in next Question.`)
-    readLineSync.keyInPause('Press Any Key to continue'); 
-  }
-
-   console.log(`**************************************************************************************************\n`);
-
-   //Question No 5
-  console.log(`Q5 When the user tries to delete the element from the empty stack then the condition is\n   said to be a\n  A. Underflow\n  B. Garbage collection\n  C. Overflow\n  D. None`);
-  console.log(`Answer:`);
-  answer = readLineSync.question();
-  if(answer.toUpperCase()==='A'){
-    console.log("Yaay!! You have done it Correct.")
-    score++;
-    console.log(`\nUnderflow is a condition that occurs when user tries to implement the pop operation in the\nempty stack.\n\n`)
-    readLineSync.keyInPause('Press Any Key to exit the Quiz.');
-  }
-  else{
-    console.log(`\nAhh! You have guessed it wrong. Correct Answer is A.\n\nExplanation:\nUnderflow is a condition that occurs when user tries to implement the pop operation in the\nempty stack.\n\n`)
-    readLineSync.keyInPause('\nPress Any Key to exit the Quiz.'); 
-  }
-  console.clear();
-  return score;
+function validate(ans){
+  if(ans.toUpperCase()==='A' || ans.toUpperCase()==='B' || ans.toUpperCase()==='C' || ans.toUpperCase()==='D')
+    return true;
+  else
+    return false;
 }
-
 //main QUiz Function
 function quiz(){
-  let score=0;
+  let totalScore=0;
   console.log(`Finally you have decided to go ahead, Congrats !!\nIn the next Screen you will get the questions 1-by-1.\nFollow the rules stated to answer the questions.\n\n`);
   readLineSync.keyInPause('Press Any Key to continue');
   console.clear();
-  score=Questions(score);
-  return score;
+  for(let i = 0; i < questions.length; i++) {
+    console.log();
+    console.log(`${questions[i].question}`);
+    for(const num of questions[i].options) {
+      console.log(`\t${num}`);
+    }
+    console.log();
+    const ans = readLineSync.question('Enter Your answer : ');
+    if(validate(ans)) {
+      if(ans.toUpperCase() === questions[i].correctAnswer) {
+          console.log("Yaay!! You have done it Correct.");
+          totalScore += 1;
+      } else {
+        console.log("\nWrong Answer");
+        console.log(`Correct answer is ${questions[i].correctAnswer}`);
+      } 
+    } else {
+      console.log("Select valid option from next question.");
+    }
+    if(i==questions.length-1){
+      readLineSync.keyInPause('Press Any Key to exit'); 
+      console.clear();
+    }
+    else{
+      readLineSync.keyInPause('Press Any Key to continue'); 
+      console.log(`**************************************************************************************************`);
+    }
+
+  }
+  return totalScore;
   
 }
 
-//Calling point of the function
+//starting point of program
 const name = readLineSync.question('What is your name?\n');
 console.clear();
 console.log(`Hello ${name}`);
