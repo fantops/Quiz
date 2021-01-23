@@ -43,6 +43,7 @@ function quiz(){
   console.clear();
   for(let i = 0; i < questions.length; i++) {
     console.log(`\n${questions[i].question}`);
+    console.time("Time taken for answering");
     const ans = readLineSync.question(`${questions[i].options.join(`\n`)}\n\nEnter Your answer: `);
     if(validate(ans)) {
       if(ans.toUpperCase() === questions[i].correctAnswer) {
@@ -55,6 +56,7 @@ function quiz(){
     } else {
       console.log("Select valid option from next question.");
     }
+    console.timeEnd("Time taken for answering");
     if(i===questions.length-1){
       readLineSync.keyInPause('Press Any Key to exit'); 
       console.clear();
