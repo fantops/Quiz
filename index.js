@@ -55,7 +55,7 @@ function quiz(){
     } else {
       console.log("Select valid option from next question.");
     }
-    if(i==questions.length-1){
+    if(i===questions.length-1){
       readLineSync.keyInPause('Press Any Key to exit'); 
       console.clear();
     }
